@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <h1>HelloWorld!</h1> -->
+</body>
+<script>
+let n1 = prompt("Enter First Number");
+let op = prompt("Enter Operator");
+let n2 = prompt("Enter Second Number");
+
+function add(n1, n2){
+    alert(n1 + n2)
+}
+function sub(n1, n2){
+    alert(n1 - n2)
+}
+function multi(n1, n2){
+    alert(n1 * n2)
+}
+function div(n1, n2){
+    alert(n1 / n2)
+}
+function mod(n1, n2){
+    alert(n1 % n2)
+}
+
+function print(n1, n2, op){
+    if(op === '+'){
+        add(n1, n2)
+    }
+    else if(op === '-'){
+        sub(n1, n2)
+    }
+    else if(op === '*'){
+        multi(n1, n2)
+    }
+    else if(op === '/'){
+        div(n1, n2)
+    }
+   else if(op === '%'){
+       mod(n1, n2)
+   }
+}
+
+function calculator(n1, n2, op){
+    print(n1, n2, op)
+}
+calculator(Number(n1), Number(n2), op);
+</script>
+</html>
