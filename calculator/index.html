@@ -11,23 +11,31 @@
 
         <div class="calculator">
         <h5>CASIO</h5>
-        <input class="display" type="text" id="screen"></input>
-            <button class="btn" onclick="getValue('7')">7</button>
-            <button class="btn" onclick="getValue('8')">8</button>            
-            <button class="btn" onclick="getValue('9')">9</button>
-            <button class="btn" onclick="getOperator('/')">/</button>
-            <button class="btn" onclick="getValue('4')">4</button>
-            <button class="btn" onclick="getValue('5')">5</button>
-            <button class="btn" onclick="getValue('6')">6</button>
-            <button class="btn" onclick="getOperator('*')">*</button>
-            <button class="btn" onclick="getValue('1')">1</button>
-            <button class="btn" onclick="getValue('2')">2</button>
-            <button class="btn" onclick="getValue('3')">3</button>
-            <button class="btn" onclick="getOperator('-')">-</button>
-            <button class="btn" onclick="clearScreen()">C</button>
-            <button class="btn" onclick="getValue('0')">0</button>
-            <button class="btn" onclick="getOperator('+')">+</button>
-            <button class="btn btnClr" onclick="calculate()">=</button>
+        <input  type="text" id="display" disabled>
+            <button class="btn" onclick="press('7')">7</button>
+            <button class="btn" onclick="press('8')">8</button>            
+            <button class="btn" onclick="press('9')">9</button>
+            <button class="btn" onclick="setOperator('/')">/</button>
+
+            <button class="btn" onclick="press('4')">4</button>
+            <button class="btn" onclick="press('5')">5</button>
+            <button class="btn" onclick="press('6')">6</button>
+            <button class="btn" onclick="setOperator('*')">*</button>
+
+            <button class="btn" onclick="press('1')">1</button>
+            <button class="btn" onclick="press('2')">2</button>
+            <button class="btn" onclick="press('3')">3</button>
+            <button class="btn" onclick="setOperator('-')">-</button>
+
+            <button class="btn" onclick="press('.')">.</button>
+            <button class="btn" onclick="press('0')">0</button>
+            <button class="btn" onclick="press(',')">,</button>
+            <button class="btn" onclick="setOperator('+')">+</button>
+
+            <button class="btn" onclick="square()">x2</button>
+            <button class="btn textStylebtn" onclick="deleteLast()">DEL</button>
+            <button class="btn textStylebtn" onclick="clearDisplay()">AC</button>
+            <button class="btn equalBtn" onclick="calculate()">=</button>
         </div>
 
     </div>

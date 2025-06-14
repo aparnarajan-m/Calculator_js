@@ -3,45 +3,83 @@ let n1 = "";
 let operator = "";
 let n2 = "";
 
-function getValue(value) {
+//Value Adding on Display
+function press(value) {
     displayValue += value;
-    document.getElementById("screen").value = displayValue;
+    document.getElementById("display").value = displayValue;
 }
 
-function getOperator(op) {
+//Setting Operators
+function setOperator(op) {
     n1 = displayValue;
     operator = op;
-    displayValue = "";
+    displayValue += operator;
+    document.getElementById("display").value = displayValue;
 }
 
+//find numbers squares
+function square() {
+    displayValue = displayValue ** 2;
+    document.getElementById("display").value = displayValue;
+}
+// Calculate the values
 function calculate() {
-    n2 = displayValue;
+    let parts = displayValue.split(operator);
+    n2 = parts[1];
+
     let result = 0;
     switch (operator) {
-        case '+':
+        case "+":
             result = Number(n1) + Number(n2);
             break;
-        case '-':
+        case "-":
             result = Number(n1) - Number(n2);
             break;
-        case '*':
+        case "*":
             result = Number(n1) * Number(n2);
             break;
-        case '/':
+        case "/":
             result = Number(n1) / Number(n2);
-            break;        
+            break;
+        default:
+            result = "Error";            
     }
     displayValue = result.toString();
-    document.getElementById("screen").value = displayValue;
+    document.getElementById("display").value = displayValue;
+
     n1 = "";
     operator = "";
     n2 = "";
 }
 
-function clearScreen() {
+//Delete the lastOnes
+function deleteLast() {
+    displayValue = displayValue.slice(0, -1);
+    document.getElementById("display").value = displayValue;
+}
+
+//Clear display
+function clearDisplay() {
     displayValue = "";
     n1 = "";
     operator = "";
     n2 = "";
-    document.getElementById("screen").value = "";
+
+    document.getElementById("display").value = "";
 }
+
+//Adding keyBoard Support
+document.addEventListener("keydown", function(event) {
+    const key = event.key;
+    if (!isNaN(key) || key === ".") {
+        press(key); 
+    } else if (["+", "-", "*", "/"].includes(key)) {
+        setOperator(key); 
+    } else if (key === "Enter" || key === "=") {
+        calculate(); 
+    } else if(key === "Backspace" || key === "DEL"){
+        deleteLast();
+    }else if (key === "Delete" || key === "AC") {
+        clearDisplay(); 
+    }
+});
